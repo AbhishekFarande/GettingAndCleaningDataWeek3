@@ -18,7 +18,7 @@ In other words, it should be like this:
   The script run_analysis.R in this repository is divided into sub parts executing specific steps required in the assignment. The script has detailed comments for the same. Following is a brief description of the steps perrformed.
   
   ---------------------------------------------------------------------------------------------------------------------------
- Part 1 - Merge the training and the test sets to create one data set
+ ## Part 1 - Merge the training and the test sets to create one data set
   
   The training and test data sets are loaded in R variables using function read.table.
   
@@ -35,7 +35,7 @@ In other words, it should be like this:
   Data is merged into a single data set "completeData" using the function cbind
   
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  Part 2 - Extracts only the measurements on the mean and standard deviation for each measurement using the function grep
+  ## Part 2 - Extracts only the measurements on the mean and standard deviation for each measurement using the function grep
   
   columnsWithMeanSTD <- grep(".*Mean.*|.*Std.*", names(completeData), ignore.case=TRUE)
   
@@ -44,35 +44,37 @@ In other words, it should be like this:
   extractedData <- completeData[,requiredColumns]
   ---------------------------------------------------------------------------------------------------------------------------------------------------------
   
-  Part 3 - Uses descriptive activity names to name the activities in the data set
+  ## Part 3 - Uses descriptive activity names to name the activities in the data set
   
   extractedData$Activity <- as.character(extractedData$Activity)
   for (i in 1:6){
   extractedData$Activity[extractedData$Activity == i] <- as.character(activityLabels[i,2])
   }
 
-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------
 
-## Part 4 - Appropriately labels the data set with descriptive variable names
+ ## Part 4 - Appropriately labels the data set with descriptive variable names
 
-## Acc is replaced with Accelerometer
+ Acc is replaced with Accelerometer
 
-## Gyro is replaced with Gyroscope
+ Gyro is replaced with Gyroscope
 
-## BodyBody is replaced with Body
+ BodyBody is replaced with Body
 
-## Mag is replaced with Magnitude
+ Mag is replaced with Magnitude
 
-## Character f is replaced with Frequency
+ Character f is replaced with Frequency
 
-## Character t is replaced with Time
+ Character t is replaced with Time
 
-Ex: names(extractedData)<-gsub("Acc", "Accelerometer", names(extractedData))
+ Ex: names(extractedData)<-gsub("Acc", "Accelerometer", names(extractedData))
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 ##Part 5 - From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
-## We create tidyData as a data set with average for each activity and subject. Then, we order the enties in tidyData and write it into data file Tidy.txt that contains the processed data.
+
+Create tidyData as a data set with average for each activity and subject. Then,order the enties in tidyData and write it into data file Tidy.txt that contains the processed data.
+
 tidyData <- aggregate(. ~Subject + Activity, extractedData, mean)
 tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
 write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
