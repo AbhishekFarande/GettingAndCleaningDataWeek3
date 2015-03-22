@@ -1,7 +1,7 @@
 Description: a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
 
 
-##Assumptions
+*Assumptions*
 
 It is assumed that the Samsung data is unzipped into the working directory. The data therefore resides in the same folder as run_analysis.R
 
@@ -17,7 +17,8 @@ In other words, it should be like this:
   
   The script run_analysis.R in this repository is divided into sub parts executing specific steps required in the assignment. The script has detailed comments for the same. Following is a brief description of the steps perrformed.
   
-  ---------------------------------------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------------------------------------------
+  
  ##Part 1 - Merge the training and the test sets to create one data set
   
   The training and test data sets are loaded in R variables using function read.table.
