@@ -1,7 +1,7 @@
 Description: a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
 
 
-Assumptions
+##Assumptions
 
 It is assumed that the Samsung data is unzipped into the working directory. The data therefore resides in the same folder as run_analysis.R
 
@@ -18,7 +18,7 @@ In other words, it should be like this:
   The script run_analysis.R in this repository is divided into sub parts executing specific steps required in the assignment. The script has detailed comments for the same. Following is a brief description of the steps perrformed.
   
   ---------------------------------------------------------------------------------------------------------------------------
- ## Part 1 - Merge the training and the test sets to create one data set
+ ##Part 1 - Merge the training and the test sets to create one data set
   
   The training and test data sets are loaded in R variables using function read.table.
   
@@ -35,7 +35,7 @@ In other words, it should be like this:
   Data is merged into a single data set "completeData" using the function cbind
   
   -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-  ## Part 2 - Extracts only the measurements on the mean and standard deviation for each measurement using the function grep
+  ##Part 2 - Extracts only the measurements on the mean and standard deviation for each measurement using the function grep
   
   columnsWithMeanSTD <- grep(".*Mean.*|.*Std.*", names(completeData), ignore.case=TRUE)
   
@@ -44,7 +44,7 @@ In other words, it should be like this:
   extractedData <- completeData[,requiredColumns]
   ---------------------------------------------------------------------------------------------------------------------------------------------------------
   
-  ## Part 3 - Uses descriptive activity names to name the activities in the data set
+  ##Part 3 - Uses descriptive activity names to name the activities in the data set
   
   extractedData$Activity <- as.character(extractedData$Activity)
   for (i in 1:6){
@@ -53,7 +53,7 @@ In other words, it should be like this:
 
 -----------------------------------------------------------------------------------------------------------------------------
 
- ## Part 4 - Appropriately labels the data set with descriptive variable names
+ ##Part 4 - Appropriately labels the data set with descriptive variable names
 
  Acc is replaced with Accelerometer
 
