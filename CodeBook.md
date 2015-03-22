@@ -1,7 +1,7 @@
 Description: a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md.
 
 
-*Assumptions*
+#Assumptions#
 
 It is assumed that the Samsung data is unzipped into the working directory. The data therefore resides in the same folder as run_analysis.R
 
